@@ -44,7 +44,7 @@
 // Only define one driver, the other ones must be commented out
 //#define ILI9341_DRIVER       // Generic driver for common displays
 //#define ILI9341_2_DRIVER     // Alternative ILI9341 driver, see https://github.com/Bodmer/TFT_eSPI/issues/1172
-#define ST7735_DRIVER      // Define additional parameters below for this display
+//#define ST7735_DRIVER      // Define additional parameters below for this display
 //#define ILI9163_DRIVER     // Define additional parameters below for this display
 //#define S6D02A1_DRIVER
 //#define RPI_ILI9486_DRIVER // 20MHz maximum SPI
@@ -52,7 +52,7 @@
 //#define ILI9481_DRIVER
 //#define ILI9486_DRIVER
 //#define ILI9488_DRIVER     // WARNING: Do not connect ILI9488 display SDO to MISO if other devices share the SPI bus (TFT SDO does NOT tristate when CS is high)
-//#define ST7789_DRIVER      // Full configuration option, define additional parameters below for this display
+#define ST7789_DRIVER      // Full configuration option, define additional parameters below for this display
 //#define ST7789_2_DRIVER    // Minimal configuration option, define additional parameters below for this display
 //#define R61581_DRIVER
 //#define RM68140_DRIVER
@@ -81,15 +81,15 @@
 // #define M5STACK
 
 // For ST7789, ST7735, ILI9163 and GC9A01 ONLY, define the pixel width and height in portrait orientation
- #define TFT_WIDTH  80
+// #define TFT_WIDTH  80
 // #define TFT_WIDTH  128
 // #define TFT_WIDTH  172 // ST7789 172 x 320
 // #define TFT_WIDTH  170 // ST7789 170 x 320
-// #define TFT_WIDTH  240 // ST7789 240 x 240 and 240 x 320
- #define TFT_HEIGHT 160
+#define TFT_WIDTH  240 // ST7789 240 x 240 and 240 x 320
+// #define TFT_HEIGHT 160
 // #define TFT_HEIGHT 128
 // #define TFT_HEIGHT 240 // ST7789 240 x 240
-// #define TFT_HEIGHT 320 // ST7789 240 x 320
+#define TFT_HEIGHT 320 // ST7789 240 x 320
 // #define TFT_HEIGHT 240 // GC9A01 240 x 240
 
 // For ST7735 ONLY, define the type of display, originally this was based on the
@@ -103,7 +103,7 @@
 // #define ST7735_GREENTAB
 // #define ST7735_GREENTAB2
 // #define ST7735_GREENTAB3
-#define ST7735_GREENTAB128    // For 128 x 128 display
+// #define ST7735_GREENTAB128    // For 128 x 128 display
 // #define ST7735_GREENTAB160x80 // For 160 x 80 display (BGR, inverted, 26 offset)
 // #define ST7735_ROBOTLCD       // For some RobotLCD Arduino shields (128x160, BGR, https://docs.arduino.cc/retired/getting-started-guides/TFT)
 // #define ST7735_REDTAB
@@ -209,14 +209,15 @@
 // For ESP32 Dev board (only tested with ILI9341 display)
 // The hardware SPI can be mapped to any pins
 
-// Para ESP32 Super Mini C3 (tus pines específicos)
-#define TFT_MOSI 6     // GPIO6 para SDA (MOSI)
-#define TFT_SCLK 5     // GPIO5 para SCL (SCK)
-#define TFT_RST  7     // GPIO7 para RES (Reset)
-#define TFT_DC   4     // GPIO4 para DC (Datos/Comando)
-#define TFT_CS   9     // GPIO9 para CS (Chip Select)
-#define TFT_BL   10    // GPIO10 para BLK (Backlight)
-#define TFT_BACKLIGHT_ON HIGH // Nivel para encender la luz de fondo (HIGH o LOW)
+// Configuración ESP32 + ST7789 240x320
+#define TFT_MOSI 23
+#define TFT_SCLK 18
+
+#define TFT_CS    5
+#define TFT_DC   27
+#define TFT_RST   4
+// #define TFT_BL   10
+// #define TFT_BACKLIGHT_ON HIGH
 
 //#define TFT_MISO 19
 //#define TFT_MOSI 23
